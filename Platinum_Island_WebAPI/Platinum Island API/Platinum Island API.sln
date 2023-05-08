@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platinum Island API", "Platinum Island API.csproj", "{9E0C1297-A8D7-46A9-BB00-9816A550D6F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E0C1297-A8D7-46A9-BB00-9816A550D6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0C1297-A8D7-46A9-BB00-9816A550D6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0C1297-A8D7-46A9-BB00-9816A550D6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0C1297-A8D7-46A9-BB00-9816A550D6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C824586-410F-4910-B6F8-709464C2A6A8}
+	EndGlobalSection
+EndGlobal
