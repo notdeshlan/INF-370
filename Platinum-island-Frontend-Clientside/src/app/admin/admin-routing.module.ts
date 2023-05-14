@@ -1,7 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccommodationComponent } from './accommodation/accommodation.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DayVisitsComponent } from './day-visits/day-visits.component';
+import { EventsComponent } from './events/events.component';
+import { HelpComponent } from './help/help.component';
+import { InspectionComponent } from './inspection/inspection.component';
+import { InventoryManagementComponent } from './inventory-management/inventory-management.component';
+import { ReportsComponent } from './reports/reports.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'dashboard', component: DashboardComponent},
+  {path : 'dayvisits', component: DayVisitsComponent},
+  {path : 'accommodation', component: AccommodationComponent},
+  {path: 'events', component: EventsComponent},
+  {path: 'inspections' , component: InspectionComponent},
+  {path: 'inventory' , component: InventoryManagementComponent},
+  {path: 'suppliers' , component: SuppliersComponent},
+  {path: 'settings', component: SettingsComponent},
+  {path: 'reports', component: ReportsComponent},
+  {path: 'help', component: HelpComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
