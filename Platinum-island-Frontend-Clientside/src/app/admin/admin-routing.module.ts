@@ -10,6 +10,7 @@ import { InventoryManagementComponent } from './inventory-management/inventory-m
 import { ReportsComponent } from './reports/reports.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'suppliers' , component: SuppliersComponent},
   {path: 'settings', component: SettingsComponent},
   {path: 'reports', component: ReportsComponent},
-  {path: 'help', component: HelpComponent}
+  {path: 'help', component: HelpComponent},
+  {path: 'employees', component: EmployeesComponent}
 ];
 
 @NgModule({

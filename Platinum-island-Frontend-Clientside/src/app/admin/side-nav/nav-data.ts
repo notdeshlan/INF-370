@@ -20,6 +20,11 @@ export const navbarData = [
         label : 'Events'
     },
     {
+        routerLink : 'employees',
+        icon : 'fal fal fa-users',
+        label : 'Employees'
+    },
+    {
         routerLink : 'inspections',
         icon : 'far fa-list-alt',
         label : 'Inspections'
