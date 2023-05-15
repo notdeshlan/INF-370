@@ -1,0 +1,18 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+      <div class="logo" ><img (click)="toggleCollapse()"src="assets/logo.png"></div>
+      <div class="logo-text" [ngClass]="collapsed ? 'show' : ''"><p class="logo-writing">HydroTech</p></div>
+    </div>
+  
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let item of navData">
+        <a class="sidenav-nav-link" routerLink="{{item.routerLink}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon {{item.icon}}"></i>
+          <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">{{item.label}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
