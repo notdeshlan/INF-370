@@ -16,6 +16,13 @@ import { ReportsComponent } from './reports/reports.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
+import { VATComponent } from './vat/vat.component';
+import { WaveComponent } from './wave/wave.component';
+import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { EmployeeTypeComponent } from './employee-type/employee-type.component';
+import { ItemComponent } from './item/item.component';
+import { ItemTypeComponent } from './item-type/item-type.component';
+import { ItemCategoryComponent } from './item-category/item-category.component';
 
 
 @NgModule({
@@ -32,7 +39,14 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
     ReportsComponent,
     SettingsComponent,
     SideNavComponent,
-    SuppliersComponent
+    SuppliersComponent,
+    VATComponent,
+    WaveComponent,
+    ViewEmployeeComponent,
+    EmployeeTypeComponent,
+    ItemComponent,
+    ItemTypeComponent,
+    ItemCategoryComponent
   ],
   imports: [
     CommonModule,
