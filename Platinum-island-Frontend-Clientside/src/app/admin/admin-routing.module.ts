@@ -17,6 +17,7 @@ import { EmployeeTypeComponent } from './employee-type/employee-type.component';
 import { ItemComponent } from './item/item.component';
 import { ItemTypeComponent } from './item-type/item-type.component';
 import { ItemCategoryComponent } from './item-category/item-category.component';
+import { ViewSuppliersComponent } from './view-suppliers/view-suppliers.component';
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path : 'dayvisits', component: DayVisitsComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path: 'employeetype',component: EmployeeTypeComponent},
   {path: 'item',component: ItemComponent},  
   {path: 'itemtype',component: ItemTypeComponent},
-  {path:"itemcategory", component:ItemCategoryComponent}
+  {path:"itemcategory", component:ItemCategoryComponent},
+  {path:"viewsuppliers", component:ViewSuppliersComponent},
 ];
 
 @NgModule({

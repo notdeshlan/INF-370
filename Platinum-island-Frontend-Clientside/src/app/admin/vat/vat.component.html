@@ -1,7 +1,134 @@
 <body>
-<p>vat works!</p>
-<div class="ocean">
-    <div class="wave"></div>
-    <div class="wave"></div>
+<div class="container">
+  <h1>Settings</h1>
+  <div class="sector">
+    
+    <p class = "mainHeading">VAT</p>
+  
+  <div class="addVat">
+    <button class="add" (click)="openModal()">+</button>
+    <p class="addSuppliertext">Add VAT</p>
   </div>
+  <div id="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">VAT Percentage</th>
+          <th scope="col">Date set</th>
+          <th></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let vatRecord of vatRecords">
+          <td>{{ vatRecord.vatId }}</td>
+          <td>{{ vatRecord.vatAmount }}%</td>
+          <td>{{ vatRecord.vatDate | date :'yyyy-MM-dd' }}</td>
+          <td><i class="fa fa-pencil-square" aria-hidden="true" (click)="openEditModal(vatRecord.vatId)"></i>
+          </td>
+        </tr>
+        
+        
+      </tbody>
+    </table>
+  </div>
+  
+  </div>
+  <div class="modal" [ngClass]="{'show': showModal}">
+  <div class="modal-content">
+    <div class="modalmain">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2 class="modalHeading">Add VAT</h2>
+    </div>
+    <form #form="ngForm" (ngSubmit)="saveVAT()">
+      <label for="vatAmount">VAT Percentage:</label>
+      <input type="number" id="vatPercentage" name="vatAmount" [(ngModel)]="vat.vatAmount"
+      min="1"
+      max="100"
+      (input)="validateInput($event)"
+      required />
+      <br>
+      <div class="button-group">
+        <button id = "Submit" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class = "cancel" type="button" (click)="cancelForm()">Cancel</button>
+      </div>
+      <br>
+    </form>
+  </div> 
+</div>
+<div class="modal" [ngClass]="{'show': showEditModal}">
+  <div class="modal-content">
+    <div class="modalmain">
+      <span class="close" (click)="closeEditModal()">&times;</span>
+      <h2 class="modalHeading">Edit VAT</h2>
+    </div>
+    <div *ngIf="viewMode; else editable">
+
+    </div>
+    <ng-template #editable>
+      <div *ngIf="currentVat.vatId">
+        <form #form1="ngForm" (ngSubmit)="updateVAT()">
+          <label for="vatAmount">VAT Percentage:</label>
+          <input type="number" id="vatPercentage" name="vatAmount" [(ngModel)]="currentVat.vatAmount"
+      min="1"
+      max="100"
+      (input)="validateInput($event)"
+      required />
+          <div class="button-group">
+            <button id="Submit" type="submit" [disabled]="!form1.valid">Submit</button>
+            <button class="cancel" type="button" (click)="cancelEditForm()">Cancel</button>
+          </div>
+          <br>
+        </form>
+      </div>
+    </ng-template>
+  </div>
+</div>
+</div>
+<!-- <p>vat works!</p>
+<table class="table table-bordered">
+  <thead class="table-info">
+   able head section
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let x of vatRecords">
+      <td>{{x.vatId}}</td>
+     <td>{{x.vatAmount}}</td>
+     <td>{{x.vatDate}}</td>
+      
+    </tr>
+
+  </tbody>
+</table> -->
+<!-- <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Amount</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vatRecord of vatRecords">
+      <td>{{ vatRecord.Id }}</td>
+      <td>{{ vatRecord.Date }}</td>
+      <td>{{ vatRecord.Amount }}</td>
+
+    </tr>
+  </tbody>
+</table> -->
+
+ <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div> 
 </body>

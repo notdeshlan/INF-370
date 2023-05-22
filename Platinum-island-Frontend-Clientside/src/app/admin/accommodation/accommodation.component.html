@@ -1,9 +1,152 @@
 <body>
+  <div class="container">
+      <h1>Room Type</h1>
+      <div class="form-group has-search">
+        <input type="text" class="form-control" [(ngModel)]="searchText"  placeholder="Search">
+        <span class=" form-control-feedback"></span>
+      </div>
+      
+      <div class="sector">
+        
+  <br>
+      
+        <div class="addVat">
+          <button class="add" (click)="openAddModal()">+</button>
+          <p class="addSuppliertext">Add Type</p>
+        </div>
+        <div id="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Capacity</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr *ngFor="let type of roomTypes! | filter1: searchText ">
+               
+                <td>{{ type.roomTypeId }}</td>
+                <td>{{ type.typeName }}</td>
+                <td>{{ type.typeDescription }}</td>
+                <td>{{ type.roomCapacity }}</td>
+              
+                <td><i class="fa fa-pencil-square" aria-hidden="true" (click)="openEditModal(type.roomTypeId)" ></i>
+                </td>
+                <td style="color: red;"><i class="fa fa-trash" aria-hidden="true" (click)="openModal(type.roomTypeId)"
+                ></i></td>
+               
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="deleteError" class="modal" [ngClass]="{'show': delModal}">
+            <div class="modal-content">
+              <div class="modalmain">
+                <span class="close" (click)="closeDelModal()">&times;</span>
+                <h4 class="modalHeading">Error</h4>
+              </div>
+             
+               <p>There Are Associated Records for this type. Cannot Delete</p>
+                <br>
+                <div class="button-group">
+                 
+                  <button class = "cancel" type="button" (click)="closeDelModal()">Cancel</button>
+                </div>
+                <br>
+            </div> 
+          </div> 
 
-<p>accommodation works!</p>
-<div class="ocean">
-    <div class="wave"></div>
-    <div class="wave"></div>
+
+          <div class="modal" [ngClass]="{'show': showModal}">
+            <div class="modal-content">
+              <div class="modalmain">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <h4 class="modalHeading">Confirm Deletion</h4>
+              </div>
+             
+               <p>Are you sure you want to delete this Employee Type</p>
+                <br>
+                <div class="button-group">
+                  <button id = "Submit" type="submit" (click)="deleteType(currentType.roomTypeId)">Submit</button>
+                  <button class = "cancel" type="button" (click)="closeModal()">Cancel</button>
+                </div>
+                <br>
+            </div> 
+          </div> 
+  
+           <div class="modal" [ngClass]="{'show': showAddModal}">
+            <div class="modal-content">
+              <div class="modalmain">
+                <span class="close" (click)="closeAddModal()">&times;</span>
+                <h4 class="modalHeading">Add Supplier</h4>
+              </div>
+             
+              <form #form="ngForm" (ngSubmit)="saveType()">
+                <label for="typeName">Type Name:</label>
+                <input type="text" id="vatPercentage" name="typeName" [(ngModel)]="roomType!.typeName"
+                required />
+                <label for="desc">Type Description:</label>
+                <input type="text" id="vatPercentage" name="desc" [(ngModel)]="roomType!.typeDescription"
+                 required>
+                 <label for="cap">Room Capacity:</label>
+                <input type="text" id="vatPercentage" name="cap" [(ngModel)]="roomType!.roomCapacity"
+                 required>
+        
+                <br>
+                <div class="button-group">
+                  <button id = "Submit" type="submit" [disabled]="!form.valid">Submit</button>
+                  <button class = "cancel" type="button" (click)="closeModal()">Cancel</button>
+                </div>
+                </form>
+            </div> 
+          </div>
+  
+           <div class="modal" [ngClass]="{'show': showEditModal}">
+            <div class="modal-content">
+              <div class="modalmain">
+                <span class="close" (click)="closeEditModal()">&times;</span>
+                <h2 class="modalHeading">Edit Type</h2>
+              </div>
+              <div *ngIf="viewMode; else editable">
+          
+              </div>
+              <ng-template #editable>
+                <div *ngIf="currentType.roomTypeId">
+                  <form #form1="ngForm" (ngSubmit)="updateType()">
+                   
+                      <label for="typeName">Type Name:</label>
+                      <input type="text" id="vatPercentage" name="typeName" [(ngModel)]="currentType!.typeName"
+                      required />
+                      <label for="desc">Type Description:</label>
+                      <input type="text" id="vatPercentage" name="desc" [(ngModel)]="currentType!.typeDescription"
+                       required>
+                       <label for="cap">Room Capacity:</label>
+                       <input type="text" id="vatPercentage" name="cap" [(ngModel)]="currentType!.roomCapacity"
+                        required>
+                    <br>
+                    <div class="button-group">
+                      <button id="Submit" type="submit" [disabled]="!form1.valid">Submit</button>
+                      <button class="cancel" type="button" (click)="closeEditModal()">Cancel</button>
+                    </div>
+                    <br>
+                  </form>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+   
+        </div>
+      </div>
+      </div>
+    
+  <div class="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
   </div>
 </body>
+
 

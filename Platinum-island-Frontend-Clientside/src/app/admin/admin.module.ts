@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormControl } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
 import { AccommodationComponent } from './accommodation/accommodation.component';
@@ -23,6 +23,13 @@ import { EmployeeTypeComponent } from './employee-type/employee-type.component';
 import { ItemComponent } from './item/item.component';
 import { ItemTypeComponent } from './item-type/item-type.component';
 import { ItemCategoryComponent } from './item-category/item-category.component';
+import { ViewSuppliersComponent } from './view-suppliers/view-suppliers.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './view-suppliers/filter.pipe';
+
+import { FilterPipe2 } from './employee-type/filter.pipe';
+import { FilterPipe3 } from './employees/filter.pipe';
+
 
 
 @NgModule({
@@ -46,11 +53,19 @@ import { ItemCategoryComponent } from './item-category/item-category.component';
     EmployeeTypeComponent,
     ItemComponent,
     ItemTypeComponent,
-    ItemCategoryComponent
+    ItemCategoryComponent,
+    ViewSuppliersComponent,
+    FilterPipe,
+    FilterPipe2,
+    FilterPipe3,
+
+
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [SideNavComponent,BodyComponent],
 })

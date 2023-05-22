@@ -1,1 +1,141 @@
-<p>item works!</p>
+<body>
+    <div class="container">
+        <h1>Items</h1>
+        <div class="form-group has-search">
+          <input type="text" class="form-control" [(ngModel)]="searchText"  placeholder="Search">
+          <span class=" form-control-feedback"></span>
+        </div>
+        
+        <div class="sector">
+          
+    <br>
+        
+          <div class="addVat">
+            <button class="add" (click)="openAddModal()">+</button>
+            <p class="addSuppliertext">Add Employee</p>
+          </div>
+          <div id="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Item Name</th>
+                  <th scope="col">Item Description</th>
+                  <th scope="col">Item Type</th>
+                  <th scope="col">Quantity</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr *ngFor="let emp of Items! | filter2: searchText">
+                  <td>{{ emp.itemId }}</td>
+                  <td>{{ emp.itemName }}</td>
+                  <td>{{emp.itemDescription}}</td>
+                  <td>{{ getItemTypeName(emp.itemTypeId!)}}</td>
+                   <td>{{ emp.qtyOnHand}}</td>
+                  <td><i class="fa fa-pencil-square" aria-hidden="true" (click)="openEditModal(emp.itemId)" ></i>
+                  </td>
+                  <td style="color: red;"><i class="fa fa-trash" aria-hidden="true" (click)="openModal()"
+                  ></i></td>
+                   <div class="modal" [ngClass]="{'show': showModal}">
+                    <div class="modal-content">
+                      <div class="modalmain">
+                        <span class="close" (click)="closeModal()">&times;</span>
+                        <h4 class="modalHeading">Confirm Deletion</h4>
+                      </div>
+                     
+                       <p>Are you sure you want to delete this Employee</p>
+                        <br>
+                        <div class="button-group">
+                          <button id = "Submit" type="submit" (click)="deleteEmp(emp.itemId)">Submit</button>
+                          <button class = "cancel" type="button" (click)="closeModal()">Cancel</button>
+                        </div>
+                        <br>
+                    </div> 
+                  </div>  
+                </tr>
+              </tbody>
+            </table>
+    
+            <div class="modal" [ngClass]="{'show': showAddModal}">
+              <div class="modal-content">
+                <div class="modalmain">
+                  <span class="close" (click)="closeAddModal()">&times;</span>
+                  <h4 class="modalHeading">Add Supplier</h4>
+                </div>
+               
+                <form #form="ngForm" (ngSubmit)="saveEmployee()">
+                  <label for="typeName">Item Name:</label>
+                  <input type="text" id="vatPercentage" name="typeName" [(ngModel)]="Item.itemName"
+                  required />
+                  <label for="desc">Item Description</label>
+                  <input type="text" id="vatPercentage" name="desc" [(ngModel)]="Item.itemDescription"
+                   required>
+                   <label for="desc">Quantity</label>
+                  <input type="number" id="vatPercentage" name="desc" [(ngModel)]="Item.qtyOnHand"
+                   required>
+                   <label for="type">Employee Type</label>
+                   <select [(ngModel)]="Item.itemTypeId" name="type">
+                    <option *ngFor="let option of iTypes" [value]="option.itemTypeId">{{ option.typeName }}</option>
+                  </select>
+                  
+          
+                  <br>
+                  <div class="button-group">
+                    <button id = "Submit" type="submit" [disabled]="!form.valid">Submit</button>
+                    <button class = "cancel" type="button" (click)="closeModal()">Cancel</button>
+                  </div>
+                  </form>
+              </div> 
+            </div>
+    
+             <div class="modal" [ngClass]="{'show': showEditModal}">
+              <div class="modal-content">
+                <div class="modalmain">
+                  <span class="close" (click)="closeEditModal()">&times;</span>
+                  <h2 class="modalHeading">Edit Employee</h2>
+                </div>
+                <div *ngIf="viewMode; else editable">
+            
+                </div>
+                <ng-template #editable>
+                  <div *ngIf="currentItem.itemId">
+                    <form #form1="ngForm" (ngSubmit)="updateEmployee()">
+                     
+                        <label for="typeName">Item Name:</label>
+                        <input type="text" id="vatPercentage" name="typeName" [(ngModel)]="currentItem.itemName"
+                        required />
+                        <label for="desc">Item Description</label>
+                        <input type="text" id="vatPercentage" name="desc" [(ngModel)]="currentItem.itemDescription"
+                         required>
+                         <label for="desc1">Quantity</label>
+                        <input type="text" id="vatPercentage" name="desc1" [(ngModel)]="currentItem.qtyOnHand"
+                         required>
+                         <label for="type">Employee Type</label>
+                         <select [(ngModel)]="currentItem.itemTypeId" name="type">
+                          <option *ngFor="let option of iTypes" [value]="option.itemTypeId">{{ option.typeName }}</option>
+                        </select>
+                             
+                      <br>
+                      <div class="button-group">
+                        <button id="Submit" type="submit" [disabled]="!form1.valid">Submit</button>
+                        <button class="cancel" type="button" (click)="closeEditModal()">Cancel</button>
+                      </div>
+                      <br>
+                    </form>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+     
+          </div>
+        </div> 
+        </div> 
+      
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</body>

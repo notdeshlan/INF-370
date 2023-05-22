@@ -1,14 +1,304 @@
-.waves {
+// best seen at 1500px or less
 
+html, body { height: 100%; 
+  overflow-x: hidden;}
+  body {
+    overflow: hidden;
+  }
+  .sector {
+    position: relative;
+    left: 4%;
+    z-index: 10;
+  
+  }
+  .ocean { 
+    height: 5%;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background: #f77575;
+  }
+  
+  .wave {
+    background: url(../vat/download.svg) repeat-x; 
     position: absolute;
-    transform: scaleY(-1);
-    z-index: 1;
-    bottom: 0;
-    margin-left: -48%;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 17s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+    overflow-x: hidden;
+  }
+  
+  .wave:nth-of-type(2) {
+    top: -175px;
+    animation: wave 17s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+  }
+  
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+  
+  @keyframes swell {
+    0%, 100% {
+      transform: translate3d(0,-25px,0);
+    }
+    50% {
+      transform: translate3d(0,5px,0);
+    }
+  }
+  .mainHeading{
+    font-size: 32px;
+    margin-left: 175px;
+    margin-top: 25px;
+  };
+  
+  
+  .add{
+    width: 45px;
+    height:45px;
+    border-radius: 50%;
+    background-color: #219ebc;
+    border-color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+  } 
+  
+  .addVat{
+  margin-left: 175px;
+  display: flex;
+  align-items: center; 
+  
+  }
+  
+  .addSuppliertext{
+  font-size: 18px;
+  margin-left: 10px; 
+  margin-top: 12px;
+  }
+  
+  .table {
+    margin-top: 45px;
+    width: fit-content;
+    margin-left: 175px; 
+    max-height: 100px;
+    overflow-y: scroll;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px 12px;
+  }
+  
+  .table th{
+    background-color: #023047;
+    color: white;
+  
+  }
+  
+  
+  .fa.fa-pencil-square {
+    font-size: 24px; /* Set the desired font size */
+    color: #219ebc;
+  }
+  
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .modal.show {
+    display: block;
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 500px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+  .modal.show .modal-content {
+    opacity: 1;
+  }
+  
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    background-color: #012536;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 15px;
+    margin-left: 22px;
+  }
+  
+  input[type="text"] {
+    padding: 4px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 400px; 
+    margin-left: 20px;
+  }
+ select {
+    padding: 4px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 400px; 
+    margin-left: 20px;
+  }
+  input[type="email"] {
+    padding: 4px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 400px; 
+    margin-left: 20px;
+  }
+  .emailError {
+    color: red;
+    font-size: 12px;
+    padding-left: 5%;
+  }
+  
+  
+  
+  .modalmain {
+    color: #fff;
+    background-color: #023047;
+    padding: 10px;
+    margin-top: 0;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 10px;
+  }
+  h1{
+    margin-left: 20%;
+    margin-top: -0.6% !important;
+  }
+  h2 {
+    background-color: #023047;
+    color: #fff;
+    padding: 10px;
+    margin-top: 0;
+    border-radius: 20px 20px 0 0;
+  }
+  #table-container {
+    height: 200px; /* Adjust the height as needed */
+    overflow: auto;
+  }
+  thead {
+    position: sticky;
+    top: 0;
+    background-color: #f5f5f5;
+  }
+  .button-group {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+  }
+  
+  .button-group button {
+    margin: 0 -79px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  #Submit{
+    text-align: center;
+    width: 71px;
+    height: 38px;
+    background-color: #92d050;
+    margin-right: 90px;
+    border-color: #92d050;
+  
+  }
+  
+  .cancel{
+    background-color: lightgray;
+    width: 71px;
+    height: 38px;
+    border-color: lightgray;
+  }
 
-}
+  .dialog{
+    z-index: 10;
+  }
 
-.ticket
-{
-    min-height: 100vh;
+  .form-group.has-search {
+    width: fit-content;
+    display: inline-block;
+    margin-left: 190px;
+    margin-bottom: -49px !important;
+    margin-top: 5px;
+    border-color: #023047;
+  }
+
+ 
+.form-group.has-search input {
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  border: 1px solid #023047;
 }
+  
+  .form-group.has-search span {
+    position: relative;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #ccc;
+    font-size: 14px;
+    border-color: #023047;
+  }
+  
+  .form-group.has-search i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #ccc;
+    border-color: #023047;
+  }
+  
+  .form-group.has-search input:focus {
+    outline: none; 
+    border-color: #023047;
+    box-shadow: 0 0 0 2px #023047; 
+  }

@@ -6,97 +6,105 @@
         <div class="logo-text" [ngClass]="collapsed ? 'show' : ''"><p class="logo-writing">HydroTech</p></div>
       </div>
       
-      
-    <ul class="sidenav-nav">
-        <li class="sidenav-nav-item" routerLink="/dashboard">
-            <a class="sidenav-nav-link">
-              <i class="sidenav-link-icon fa-sharp fa-solid fa-house"></i>
-              <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Dashboard</span>
-            </a>
-        </li>
-        <li class="sidenav-nav-item" routerLink="/dayvisits">
-            <a class="sidenav-nav-link">
-              <i class="sidenav-link-icon fa-sharp fa-solid fa-ticket-simple"></i>
-              <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Day visits</span>
-            </a>
-        </li>
-        <li class="sidenav-nav-item" routerLink="/accommodation">
-          <a class="sidenav-nav-link">
-            <i class="sidenav-link-icon fa-sharp fa-solid fa-bed"></i>
-            <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Accommodation</span>
-          </a>
-      </li>
-      <li class="sidenav-nav-item" routerLink="/events">
+<div class="container">
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" routerLink="/dashboard">
         <a class="sidenav-nav-link">
-          <i class="sidenav-link-icon fa-sharp fa-solid fa-microphone"></i>
-          <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Events</span>
+          <i class="sidenav-link-icon fa-sharp fa-solid fa-house"></i>
+          <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Dashboard</span>
+        </a>
+    </li>
+    <li class="sidenav-nav-item" routerLink="/dayvisits">
+        <a class="sidenav-nav-link">
+          <i class="sidenav-link-icon fa-sharp fa-solid fa-ticket-simple"></i>
+          <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Day visits</span>
         </a>
     </li>
     <li class="sidenav-nav-item">
       <div class="dropdown">
       <a class="sidenav-nav-link">
-      
-        <i class="sidenav-link-icon fa-sharp fa-solid fa-users"></i>
-        <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Employees</span>
-          <div class="dropdown-content">
-            <a routerLink="/viewemployee">View Employees</a>
-            <a routerLink="/employeetype">Employee Type</a>
-          </div>
+        <i class="sidenav-link-icon fa-sharp fa-solid fa-bed"></i>
+        <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Accommodation</span>
+        <div class="dropdown-content">
+          <a>Rooms</a>
+          <a routerLink="/accommodation">Room Types</a>
+        </div>
       </a>
+    </div>
+  </li>
+  <li class="sidenav-nav-item" routerLink="/events">
+    <a class="sidenav-nav-link">
+      <i class="sidenav-link-icon fa-sharp fa-solid fa-microphone"></i>
+      <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Events</span>
+    </a>
+</li>
+<li class="sidenav-nav-item">
+  <div class="dropdown">
+  <a class="sidenav-nav-link">
+  
+    <i class="sidenav-link-icon fa-sharp fa-solid fa-users"></i>
+    <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Employees</span>
+      <div class="dropdown-content">
+        <a routerLink="/employees">View Employees</a>
+        <a routerLink="/employeetype">Employee Type</a>
       </div>
-    </li>
-    <li class="sidenav-nav-item" routerLink="/inspections">
-      <a class="sidenav-nav-link">
-        <i class="sidenav-link-icon fa-solid fa-file-lines"></i>
-        <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Inspections</span>
-      </a>
-  </li>
-  <li class="sidenav-nav-item">
-    <div class="dropdown">
-    <a class="sidenav-nav-link">
-    
-      <i class="sidenav-link-icon fa-sharp fa-solid fa-boxes-stacked"></i>
-      <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Inventory Management</span>
-        <div class="dropdown-content">
-          <a routerLink="/item">Items</a>
-          <a routerLink="/itemtype">Item Type</a>
-          <a routerLink="itemcategory">Item Category</a>
-        </div>
-    </a>
+  </a>
+  </div>
+</li>
+<li class="sidenav-nav-item" routerLink="/inspections">
+  <a class="sidenav-nav-link">
+    <i class="sidenav-link-icon fa-solid fa-file-lines"></i>
+    <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Inspections</span>
+  </a>
+</li>
+<li class="sidenav-nav-item">
+<div class="dropdown">
+<a class="sidenav-nav-link">
+
+  <i class="sidenav-link-icon fa-sharp fa-solid fa-boxes-stacked"></i>
+  <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Inventory Management</span>
+    <div class="dropdown-content">
+      <a routerLink="/item">Items</a>
+      <a routerLink="/itemtype">Item Type</a>
+      <a routerLink="itemcategory">Item Category</a>
     </div>
-  </li>
-  <li class="sidenav-nav-item">
-    <div class="dropdown">
-    <a class="sidenav-nav-link">
-    
-      <i class="sidenav-link-icon fa-sharp fa-solid fa-truck-fast"></i>
-      <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Suppliers</span>
-        <div class="dropdown-content">
-          <a>View Suppliers</a>
-          <a>Supplier Orders</a>
-        </div>
-    </a>
+</a>
+</div>
+</li>
+<li class="sidenav-nav-item">
+<div class="dropdown">
+<a class="sidenav-nav-link">
+
+  <i class="sidenav-link-icon fa-sharp fa-solid fa-truck-fast"></i>
+  <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Suppliers</span>
+    <div class="dropdown-content">
+      <a routerLink="/viewsuppliers">View Suppliers</a>
+      <a>Supplier Orders</a>
     </div>
-  </li>
-  <li class="sidenav-nav-item" routerLink="/reports">
-    <a class="sidenav-nav-link">
-      <i class="sidenav-link-icon fa-solid fa-square-check"></i>
-      <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Reports</span>
-    </a>
+</a>
+</div>
+</li>
+<li class="sidenav-nav-item" routerLink="/reports">
+<a class="sidenav-nav-link">
+  <i class="sidenav-link-icon fa-solid fa-square-check"></i>
+  <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Reports</span>
+</a>
 </li>
 <li class="sidenav-nav-item" routerLink="/vat">
-  <a class="sidenav-nav-link">
-    <i class="sidenav-link-icon fa-solid fa-gear"></i>
-    <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Settings</span>
-  </a>
+<a class="sidenav-nav-link">
+<i class="sidenav-link-icon fa-solid fa-gear"></i>
+<span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Settings</span>
+</a>
 </li>
 <li class="sidenav-nav-item" routerLink="/help">
-  <a class="sidenav-nav-link">
-    <i class="sidenav-link-icon fa-solid fa-circle-question"></i>
-    <span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Help</span>
-  </a>
+<a class="sidenav-nav-link">
+<i class="sidenav-link-icon fa-solid fa-circle-question"></i>
+<span class="sidenav-link-text" [ngClass]="collapsed ? 'show' : ''">Help</span>
+</a>
 </li>
-  </ul>
+</ul>
+</div>
+   
   
 </div>
  

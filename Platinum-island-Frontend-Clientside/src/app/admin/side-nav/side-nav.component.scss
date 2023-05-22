@@ -11,13 +11,15 @@ $dropdown-link-hover-bg-color:  #023047;;
     transition: all .5s ease;
     position : fixed;
     z-index: 1;
+
     top: 0;
     width: 15rem;
     height: 100vh;
     box-shadow: 0.063rem 0 1.25rem 0 #54617a;
     display: flex;
   flex-direction: column;
-
+  align-items: center;
+overflow: visible;
    
     .dropbtn {
         background-color: $dropdown-button-bg-color;
@@ -169,7 +171,6 @@ overflow: visible;
 }
 
 .sidenav-nav{
-  
     padding: 0.938rem;
     display: flex;
     flex-direction: column;
@@ -186,7 +187,7 @@ overflow: visible;
     .sidenav-nav-link{
         display: flex;
         align-items : center;
-        height: 2.5rem;
+        height: 2.3rem;
         color: whitesmoke;
         text-decoration: none;
         transition: .3s ease;
